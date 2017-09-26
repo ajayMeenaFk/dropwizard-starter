@@ -1,7 +1,7 @@
 
-.gitignore
 .gradle/
 .idea/
 gradle/
+build
 
 

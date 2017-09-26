@@ -7,3 +7,4 @@
 * Need to check auth before processing request in server
     * Check in each resource method for auth
     * Use dropwizard's dynamic feature to set auth
+    * Can be added jersey filters for this purpose 

@@ -7,4 +7,6 @@
 * Need to check auth before processing request in server
     * Check in each resource method for auth
     * Use dropwizard's dynamic feature to set auth
-    * Can be added jersey filters for this purpose 
+    * Can be added jersey filters for this purpose
+* dropwizard bundle
+     * <a href ="https://stackoverflow.com/questions/34825213/how-to-create-my-own-custom-dropwizard-bundle"> read about bundles </a>

@@ -1,7 +1,8 @@
 package dropwizard.app;
 
-import com.codahale.metrics.health.HealthCheck;
+
 import dropwizard.app.config.RestAppConfiguration;
+import dropwizard.app.dynamic_feature.AuthDynamicFeature;
 import dropwizard.app.healthcheck.RestAppHealthCheck;
 import dropwizard.app.manged.RestAppManaged;
 import dropwizard.app.resource.TestResource;
@@ -16,6 +17,7 @@ public class RestApplication extends Application<RestAppConfiguration> {
         environment.jersey().register(TestResource.class);
         environment.healthChecks().register("healthcheck", new RestAppHealthCheck(configuration));
         environment.lifecycle().manage(new RestAppManaged());
+        environment.jersey().register(AuthDynamicFeature.class);
     }
 
     @Override

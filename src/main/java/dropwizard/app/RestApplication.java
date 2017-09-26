@@ -9,6 +9,7 @@ import dropwizard.app.filter.AppFilter;
 import dropwizard.app.healthcheck.RestAppHealthCheck;
 import dropwizard.app.manged.RestAppManaged;
 import dropwizard.app.module.RestAppModule;
+import dropwizard.app.resource.BookStoreResource;
 import dropwizard.app.resource.TestResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -24,6 +25,7 @@ public class RestApplication extends Application<RestAppConfiguration> {
     @Override
     public void run(RestAppConfiguration configuration, Environment environment) throws Exception {
         environment.jersey().register(TestResource.class);
+        environment.jersey().register(BookStoreResource.class);
         environment.healthChecks().register("healthcheck", new RestAppHealthCheck(configuration));
         environment.lifecycle().manage(new RestAppManaged());
         environment.jersey().register(AuthDynamicFeature.class);

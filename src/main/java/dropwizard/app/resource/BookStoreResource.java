@@ -1,7 +1,9 @@
 package dropwizard.app.resource;
 
+import dropwizard.app.BookStoreService;
 import dropwizard.app.model.external.Book;
 
+import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -14,6 +16,12 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/book-store")
 public class BookStoreResource {
+    private final BookStoreService bookStoreService;
+
+    @Inject
+    public BookStoreResource(BookStoreService bookStoreService) {
+        this.bookStoreService = bookStoreService;
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,10 +33,8 @@ public class BookStoreResource {
     @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public Book getBookByTitle(@PathParam("name") String name){
-        Book book = new Book();
-        book.setAuthor("Default");
-        book.setTitle(name);
-        return book;
+        return bookStoreService.getBookByTitle(name);
+
     }
 
     @POST

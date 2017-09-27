@@ -10,3 +10,4 @@
     * Can be added jersey filters for this purpose
 * dropwizard bundle
      * <a href ="https://stackoverflow.com/questions/34825213/how-to-create-my-own-custom-dropwizard-bundle"> read about bundles </a>
+     * <a href ="http://www.dropwizard.io/0.7.1/docs/manual/migrations.html"> db migration </a>

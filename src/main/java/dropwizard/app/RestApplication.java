@@ -39,6 +39,7 @@ public class RestApplication extends Application<RestAppConfiguration> {
                 .setConfigClass(RestAppConfiguration.class)
                 .build();
         bootstrap.addBundle(guiceBundle);
+
     }
 
     public static void main(String [] args) throws Exception{
